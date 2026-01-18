@@ -2,8 +2,10 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      © 2026 TechSwiftTrix Digital | All Rights Reserved
+    <footer className="footer">
+      <div className="footer-content">
+        © 2026 TechSwifttrix Digital | All Rights Reserved
+      </div>
     </footer>
   );
 };

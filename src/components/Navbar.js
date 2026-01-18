@@ -1,14 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
-    <nav>
-      <Link to="/">Home</Link>
-      <Link to="/services">Services</Link>
-      <Link to="/portfolio">Portfolio</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
+    <nav className={isOpen ? "active" : ""}>
+      <div className="nav-container">
+        <div className="logo">
+          <Link to="/">TechSwifttrix</Link>
+        </div>
+
+        {/* Hamburger Icon */}
+        <div className="hamburger" onClick={toggleMenu}>
+          &#9776;
+        </div>
+
+        {/* Nav Links */}
+        <div className="nav-links">
+          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link to="/portfolio" onClick={() => setIsOpen(false)}>Portfolio</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+        </div>
+      </div>
     </nav>
   );
 };

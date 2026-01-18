@@ -1,3 +1,4 @@
+/* ---------------- Global Styles ---------------- */
 body {
   margin: 0;
   font-family: 'Arial', sans-serif;
@@ -5,35 +6,7 @@ body {
   color: #111;
   line-height: 1.6;
   scroll-behavior: smooth;
-}
-
-nav {
-  background-color: #111;
-  padding: 15px 0;
-  text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-nav a {
-  color: #fff;
-  margin: 0 20px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ff6600;
-}
-
-footer {
-  background-color: #111;
-  color: #fff;
-  text-align: center;
-  padding: 25px;
-  margin-top: 40px;
-  font-size: 14px;
+  padding-top: 60px; /* space for fixed navbar */
 }
 
 .container {
@@ -47,6 +20,85 @@ h1, h2, h3 {
   margin-bottom: 20px;
 }
 
+/* ---------------- Layout Container ---------------- */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* full viewport height */
+}
+
+.content {
+  flex: 1; /* fills space between navbar and footer */
+  padding: 20px;
+}
+
+/* ---------------- Navbar ---------------- */
+nav {
+  position: fixed;       /* always stick to top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;         
+  background-color: #111;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+nav .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+}
+
+nav .logo a {
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ff6600;
+}
+
+/* Hamburger - hidden on desktop */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ---------------- Footer ---------------- */
+footer {
+  position: fixed;       /* always stick to bottom */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 25px 10px;
+  font-size: 14px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
+}
+
+/* ---------------- Buttons ---------------- */
 .cta-button {
   padding: 12px 30px;
   margin: 5px 0;
@@ -58,28 +110,6 @@ h1, h2, h3 {
   color: #fff;
   position: relative;
   overflow: hidden;
-}
-
-/* Brighter WhatsApp Button */
-.cta-button.whatsapp {
-  background-color: #1ebe5d; /* brighter green for visibility */
-}
-
-.cta-button.whatsapp:hover {
-  background-color: #14b34f;
-}
-
-/* Brighter Email Button */
-.cta-button.email {
-  background-color: #0077e6; /* brighter blue for visibility */
-}
-
-.cta-button.email:hover {
-  background-color: #005bb5;
-}
-
-/* Add subtle shadow to make buttons pop */
-.cta-button {
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
@@ -87,7 +117,6 @@ h1, h2, h3 {
   transform: scale(1.05);
 }
 
-/* Optional ripple effect for buttons */
 .cta-button::after {
   content: "";
   position: absolute;
@@ -104,6 +133,23 @@ h1, h2, h3 {
   opacity: 1;
 }
 
+.cta-button.whatsapp {
+  background-color: #1ebe5d;
+}
+
+.cta-button.whatsapp:hover {
+  background-color: #14b34f;
+}
+
+.cta-button.email {
+  background-color: #0077e6;
+}
+
+.cta-button.email:hover {
+  background-color: #005bb5;
+}
+
+/* ---------------- Cards ---------------- */
 .card, .service-card, .portfolio-card {
   border-radius: 10px;
   padding: 20px;
@@ -118,37 +164,7 @@ h1, h2, h3 {
   box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-input, textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  resize: vertical;
-}
-
-input:focus, textarea:focus {
-  outline: none;
-  border-color: #ff6600;
-}
-
-@media (max-width: 768px) {
-  nav a {
-    display: block;
-    margin: 10px 0;
-  }
-  .card, .service-card, .portfolio-card {
-    width: 100%;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 { font-size: 1.5rem; }
-  h2 { font-size: 1.2rem; }
-}
-
-/* Hover Animations for Service Cards */
+/* Service Card Hover */
 .service-card {
   position: relative;
   overflow: hidden;
@@ -177,7 +193,6 @@ input:focus, textarea:focus {
   left: 0;
 }
 
-/* Make text above hover overlay */
 .service-card h2, .service-card ul, .service-card a {
   position: relative;
   z-index: 1;
@@ -203,4 +218,59 @@ input:focus, textarea:focus {
 .portfolio-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+/* ---------------- Forms ---------------- */
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+}
+
+/* ---------------- Responsive ---------------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* hide links by default */
+    flex-direction: column;
+    width: 100%;
+    background-color: #111;
+    position: absolute;
+    top: 60px; /* below navbar */
+    left: 0;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  nav.active .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 10px 0;
+    font-size: 1.1rem;
+    padding: 8px 0;
+  }
+
+  .card, .service-card, .portfolio-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
 }
