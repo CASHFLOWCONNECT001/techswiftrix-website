@@ -1,0 +1,206 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: #f9f9f9;
+  color: #111;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+nav {
+  background-color: #111;
+  padding: 15px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 20px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ff6600;
+}
+
+footer {
+  background-color: #111;
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  color: #111;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  padding: 12px 30px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brighter WhatsApp Button */
+.cta-button.whatsapp {
+  background-color: #1ebe5d; /* brighter green for visibility */
+}
+
+.cta-button.whatsapp:hover {
+  background-color: #14b34f;
+}
+
+/* Brighter Email Button */
+.cta-button.email {
+  background-color: #0077e6; /* brighter blue for visibility */
+}
+
+.cta-button.email:hover {
+  background-color: #005bb5;
+}
+
+/* Add subtle shadow to make buttons pop */
+.cta-button {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+}
+
+/* Optional ripple effect for buttons */
+.cta-button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.cta-button:hover::after {
+  opacity: 1;
+}
+
+.card, .service-card, .portfolio-card {
+  border-radius: 10px;
+  padding: 20px;
+  background: #fff;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-bottom: 20px;
+}
+
+.card:hover, .service-card:hover, .portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #ff6600;
+}
+
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+  .card, .service-card, .portfolio-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.2rem; }
+}
+
+/* Hover Animations for Service Cards */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, rgba(255,102,0,0.2), rgba(255,204,0,0.2));
+  transition: all 0.5s ease;
+  z-index: 0;
+}
+
+.service-card:hover::before {
+  top: 0;
+  left: 0;
+}
+
+/* Make text above hover overlay */
+.service-card h2, .service-card ul, .service-card a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Portfolio Card Hover */
+.portfolio-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card img {
+  transition: transform 0.4s ease;
+  border-radius: 5px;
+}
+
+.portfolio-card:hover img {
+  transform: scale(1.1) rotate(1deg);
+}
+
+.portfolio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
