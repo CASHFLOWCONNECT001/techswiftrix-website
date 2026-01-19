@@ -1,5 +1,6 @@
 import React from "react";
 import CTAButtons from "../components/CTAButtons";
+import "../styles/main.css";
 
 const Portfolio = () => {
   const projectsByField = {

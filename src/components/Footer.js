@@ -2,10 +2,16 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-content">
-        © 2026 TechSwifttrix Digital | All Rights Reserved
-      </div>
+    <footer
+      style={{
+        backgroundColor: "#000",
+        color: "#fff",
+        textAlign: "center",
+        padding: "20px 10px",
+        width: "100%",
+      }}
+    >
+      © 2026 TechSwittrix Digital | All Rights Reserved
     </footer>
   );
 };

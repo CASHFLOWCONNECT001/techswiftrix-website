@@ -26,7 +26,7 @@ const About = () => {
       </p>
 
       <p style={{ fontSize: "1.1rem", lineHeight: "1.8", marginTop: "20px" }}>
-        With over <strong>3 years of experience</strong> in freelancing, I have successfully completed projects for 
+        With over <strong>2 years of experience</strong> in freelancing, I have successfully completed projects for 
         individuals and businesses, helping them <strong>grow their digital presence</strong> and achieve results.
       </p>
 
