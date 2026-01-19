@@ -1,6 +1,4 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import "../styles/main.css";
 
 const SmartFix = () => {
@@ -51,7 +49,7 @@ const SmartFix = () => {
         "Sound Calibration",
         "Bluetooth & Wi-Fi Sync",
         "Remote & Sensor Fixes",
-        "Decoder/Box Connections",
+        "Decoder / Box Connections",
         "TV Screen Repairs",
         "Consultation (From Ksh 200)",
       ],
@@ -79,73 +77,58 @@ const SmartFix = () => {
   const emailAddress = "russelalmeric9@gmail.com";
 
   return (
-    <div className="AppContainer">
-      <Navbar />
-      <div className="AppContent container">
-        <h1 style={{ textAlign: "center", marginBottom: "40px" }}>Welcome to SmartFix</h1>
-        <p style={{ textAlign: "center", marginBottom: "40px", fontSize: "18px" }}>
-          Choose a category to see our services
-        </p>
+    <div className="smartfix-page">
+      {/* SmartFix Header */}
+      <header className="smartfix-header">
+        <h1>SmartFix</h1>
+        <p>Fast & Friendly Tech Support</p>
+      </header>
 
-        <div style={{ display: "flex", flexWrap: "wrap", gap: "20px", justifyContent: "center" }}>
-          {categories.map((category, index) => {
-            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-              `Hello SmartFix, I am interested in: ${category.title}`
-            )}`;
-            const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
-              `SmartFix Service Request: ${category.title}`
-            )}&body=${encodeURIComponent(
-              `Hello SmartFix,\n\nI am interested in your service: ${category.title}.\n\nPlease contact me.\n\nThank you.`
-            )}`;
+      <div className="container">
+        {categories.map((category) => {
+          const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+            `Hello SmartFix, I am interested in: ${category.title}`
+          )}`;
 
-            return (
-              <div
-                key={category.title}
-                className={`service-card ${category.colorClass}`}
-                style={{ minWidth: "280px", maxWidth: "320px", flex: "1 1 280px" }}
-              >
-                <h2>{category.title}</h2>
-                <p style={{ marginBottom: "10px", fontSize: "0.95rem" }}>{category.description}</p>
-                <ul>
-                  {category.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                <div className="cta-button-container" style={{ marginTop: "15px" }}>
-                  <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
-                    <button className="cta-button whatsapp">Request via WhatsApp</button>
-                  </a>
-                  <a href={emailLink}>
-                    <button className="cta-button email">Request via Email</button>
-                  </a>
-                </div>
+          const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
+            `SmartFix Service Request: ${category.title}`
+          )}`;
+
+          return (
+            <div key={category.title} className={`service-card ${category.colorClass}`}>
+              <h2>{category.title}</h2>
+              <p>{category.description}</p>
+
+              <ul>
+                {category.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+
+              <div className="cta-button-container">
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
+                  <button className="cta-button whatsapp">Request via WhatsApp</button>
+                </a>
+                <a href={emailLink}>
+                  <button className="cta-button email">Request via Email</button>
+                </a>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          );
+        })}
 
-        {/* Chat / Contact Section */}
-        <div style={{ marginTop: "50px", textAlign: "center" }}>
+        {/* Chat Section */}
+        <div className="smartfix-chat">
           <h2>💬 Chat With SmartFix Admin</h2>
-          <textarea
-            placeholder="Type your message..."
-            style={{ width: "100%", maxWidth: "600px", height: "120px", margin: "10px 0", padding: "10px" }}
-          ></textarea>
-          <br />
-          <button className="cta-button" style={{ marginBottom: "20px" }}>Send</button>
-          <p>
-            You can share screenshots and videos during consultation.
-          </p>
-          <p>
-            📞 +254 796675724 | +254 729414369
-          </p>
-          <p>
-            📧 {emailAddress}
-          </p>
+          <textarea placeholder="Type your message..." />
+          <button className="cta-button">Send</button>
+
+          <p>You can share screenshots and videos during consultation.</p>
+          <p>📞 +254 796675724 | +254 729414369</p>
+          <p>📧 {emailAddress}</p>
           <p>© 2025 SmartFix — Fast Turnaround | Smart Tech Solutions</p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
