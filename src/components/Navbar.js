@@ -1,31 +1,21 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"; // back arrow
+import { FaArrowLeft } from "react-icons/fa";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation(); // detect active page
-  const navigate = useNavigate(); // for back arrow
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const isActive = (path) => location.pathname === path;
 
-  // Show back arrow only on Home page
-  const showBackArrow = location.pathname === "/techswittrix/";
+  // show back arrow on any TechSwittrix page
+  const showBackArrow = location.pathname.startsWith("/techswittrix");
 
   return (
-    <nav
-      style={{
-        backgroundColor: "#000",
-        padding: "10px 20px",
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        zIndex: 1000,
-      }}
-    >
+    <nav className={isOpen ? "active" : ""}>
       <div
         style={{
           display: "flex",
@@ -33,54 +23,41 @@ const Navbar = () => {
           alignItems: "center",
           maxWidth: "1200px",
           margin: "0 auto",
+          padding: "10px 20px",
         }}
       >
+        {/* Left side */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          {/* Back Arrow */}
           {showBackArrow && (
             <FaArrowLeft
-              size={20}
+              size={18}
               style={{ color: "#fff", cursor: "pointer" }}
               onClick={() => navigate("/")}
             />
           )}
 
-          {/* Logo */}
-          <div style={{ color: "#fff", fontWeight: "bold", fontSize: "1.2rem" }}>
-            <Link
-              to="/techswittrix/"
-              style={{ color: "#fff", textDecoration: "none" }}
-            >
-              TechSwittrix
-            </Link>
-          </div>
+          <Link
+            to="/techswittrix"
+            style={{
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: "1.2rem",
+              textDecoration: "none",
+            }}
+          >
+            TechSwittrix
+          </Link>
         </div>
 
-        {/* Hamburger for mobile */}
-        <div
-          className="hamburger"
-          onClick={toggleMenu}
-          style={{
-            fontSize: "1.5rem",
-            color: "#fff",
-            cursor: "pointer",
-            display: "none",
-          }}
-        >
+        {/* Hamburger */}
+        <div className="hamburger" onClick={toggleMenu}>
           &#9776;
         </div>
 
-        {/* Navigation Links */}
-        <div
-          className={`nav-links ${isOpen ? "active" : ""}`}
-          style={{
-            display: "flex",
-            gap: "10px",
-            flexWrap: "wrap",
-          }}
-        >
+        {/* Links */}
+        <div className="nav-links">
           {[
-            { name: "Home", path: "/techswittrix/" },
+            { name: "Home", path: "/techswittrix" },
             { name: "Services", path: "/techswittrix/services" },
             { name: "Portfolio", path: "/techswittrix/portfolio" },
             { name: "About", path: "/techswittrix/about" },
@@ -90,15 +67,7 @@ const Navbar = () => {
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              style={{
-                padding: "8px 15px",
-                backgroundColor: isActive(link.path) ? "#444" : "#222",
-                color: "#fff",
-                textDecoration: "none",
-                borderRadius: "4px",
-                fontWeight: isActive(link.path) ? "bold" : "normal",
-                transition: "all 0.3s",
-              }}
+              className={isActive(link.path) ? "active-link" : ""}
             >
               {link.name}
             </Link>
