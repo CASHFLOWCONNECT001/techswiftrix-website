@@ -51,6 +51,7 @@ nav {
   z-index: 2000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
+  padding: 10px 20px;
 }
 
 .nav-hidden {
@@ -62,6 +63,7 @@ nav {
   gap: 10px;
 }
 
+/* Nav link styling */
 .nav-links a {
   color: #fff;
   text-decoration: none;
@@ -69,6 +71,7 @@ nav {
   padding: 8px 15px;
   background: #222;
   border-radius: 4px;
+  transition: all 0.3s;
 }
 
 .nav-links a:hover,
@@ -76,11 +79,56 @@ nav {
   background: #444;
 }
 
+/* Hamburger icon */
 .hamburger {
-  display: none;
+  display: none; /* hidden on desktop */
   font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
+}
+
+/* ---------------- Mobile Navbar ---------------- */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* show hamburger */
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 60px; /* below navbar */
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background: #111;
+    flex-direction: column;
+    display: none; /* hidden by default */
+    padding: 10px 0;
+    overflow-y: auto;
+    z-index: 3000;
+  }
+
+  nav.active .nav-links {
+    display: flex; /* show menu when active */
+  }
+
+  .nav-links a {
+    display: block;
+    margin: 5px 0;
+    font-size: 1rem;
+    padding: 10px 15px;
+    text-align: center;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .nav-links a {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.15rem; }
 }
 
 /* ---------------- Footer ---------------- */
@@ -190,15 +238,13 @@ input, textarea {
   }
 
   .nav-links {
-    position: fixed;
+    position: absolute;          /* 🔥 NOT fixed */
     top: 60px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
     background: #111;
     flex-direction: column;
-    padding: 15px 0;
-    overflow-y: auto;
+    padding: 8px 0;
     display: none;
     z-index: 3000;
   }
@@ -208,9 +254,10 @@ input, textarea {
   }
 
   .nav-links a {
-    margin: 8px 0;
-    padding: 12px 0;
-    font-size: 1rem;
+    margin: 4px 0;
+    padding: 8px 0;             /* 🔽 smaller */
+    font-size: 0.9rem;          /* 🔽 smaller text */
+    background: transparent;    /* remove big blocks */
   }
 
   .card,
@@ -221,6 +268,6 @@ input, textarea {
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 1.4rem; }
-  h2 { font-size: 1.15rem; }
+  h1 { font-size: 1.3rem; }
+  h2 { font-size: 1.1rem; }
 }
