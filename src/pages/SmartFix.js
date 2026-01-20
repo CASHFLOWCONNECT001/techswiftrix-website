@@ -5,58 +5,30 @@ const SmartFix = () => {
   const categories = [
     {
       title: "📱 Mobile Phones",
-      description: "We provide the latest smartphones and repair services.",
+      description: "Software updates, backups, and phone optimization services.",
       colorClass: "red",
       items: [
-        "Phone Screen Replacement",
-        "Battery Change & Optimization",
         "Phone Unlocking & Flashing",
-        "iPhone & Android Repairs",
-        "Mobile Accessories",
-        "Camera & Speaker Repairs",
         "Software Updates",
         "Data Backup & Recovery",
-        "New & Refurbished Phone Sales",
-        "Consultation (From Ksh 200)",
-      ],
-    },
-    {
-      title: "🖥️💻 Laptops & Computers",
-      description: "Professional computer support and hardware solutions.",
-      colorClass: "blue",
-      items: [
-        "Laptop Screen Replacement",
-        "Keyboard & Battery Repairs",
-        "Windows Installation",
-        "Software Troubleshooting",
-        "Data Recovery & Backup",
-        "Networking & Wi-Fi Setup",
-        "Custom PC Builds",
-        "Hardware Upgrades",
-        "Performance Optimization",
         "Consultation (From Ksh 200)",
       ],
     },
     {
       title: "📺 Music Systems / TV",
-      description: "Setup, repair, and enhancement for your entertainment systems.",
+      description: "Software setup and configuration for entertainment systems.",
       colorClass: "yellow",
       items: [
-        "TV Wall Mounting",
         "Smart TV Configuration",
-        "Home Theatre Setup",
-        "Speaker System Wiring",
-        "Sound Calibration",
+        "Home Theatre Setup (software setup)",
         "Bluetooth & Wi-Fi Sync",
-        "Remote & Sensor Fixes",
         "Decoder / Box Connections",
-        "TV Screen Repairs",
         "Consultation (From Ksh 200)",
       ],
     },
     {
       title: "🧩 Software / Technologies",
-      description: "Boost your digital power with our advanced software solutions.",
+      description: "Boost your digital power with advanced software solutions.",
       colorClass: "green",
       items: [
         "All Windows Installation",
@@ -81,7 +53,7 @@ const SmartFix = () => {
       {/* SmartFix Header */}
       <header className="smartfix-header">
         <h1>SmartFix</h1>
-        <p>Fast & Friendly Tech Support</p>
+        <p>Fast & Friendly Software & Digital Support</p>
       </header>
 
       <div className="container">

@@ -9,10 +9,38 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  const isActive = (path) => location.pathname === path;
+  // Determine current section
+  const isCyber = location.pathname.startsWith("/cyber");
+  const isTech = location.pathname.startsWith("/techswittrix");
 
-  // show back arrow on any TechSwittrix page
-  const showBackArrow = location.pathname.startsWith("/techswittrix");
+  // Set header text dynamically
+  const headerText = isCyber ? "CYBER SERVICES" : isTech ? "TechSwittrix" : "";
+
+  // Back arrow only on Home pages
+  const showBackArrow =
+    (isTech && location.pathname === "/techswittrix") ||
+    (isCyber && location.pathname === "/cyber");
+
+  // Links for TechSwittrix
+  const techLinks = [
+    { name: "Home", path: "/techswittrix" },
+    { name: "Services", path: "/techswittrix/services" },
+    { name: "Portfolio", path: "/techswittrix/portfolio" },
+    { name: "About", path: "/techswittrix/about" },
+    { name: "Contact", path: "/techswittrix/contact" },
+  ];
+
+  // Links for Cyber
+  const cyberLinks = [
+    { name: "Cyber Home", path: "/cyber" },
+    { name: "Cyber Services", path: "/cyber/services" },
+    { name: "Cyber About", path: "/cyber/about" },
+    { name: "Cyber FAQ", path: "/cyber/faq" },
+  ];
+
+  const linksToShow = isCyber ? cyberLinks : isTech ? techLinks : [];
+
+  const isActive = (path) => location.pathname === path;
 
   return (
     <nav className={isOpen ? "active" : ""}>
@@ -32,12 +60,11 @@ const Navbar = () => {
             <FaArrowLeft
               size={18}
               style={{ color: "#fff", cursor: "pointer" }}
-              onClick={() => navigate("/")}
+              onClick={() => navigate(-1)}
             />
           )}
 
-          <Link
-            to="/techswittrix"
+          <span
             style={{
               color: "#fff",
               fontWeight: "bold",
@@ -45,8 +72,8 @@ const Navbar = () => {
               textDecoration: "none",
             }}
           >
-            TechSwittrix
-          </Link>
+            {headerText}
+          </span>
         </div>
 
         {/* Hamburger */}
@@ -56,18 +83,18 @@ const Navbar = () => {
 
         {/* Links */}
         <div className="nav-links">
-          {[
-            { name: "Home", path: "/techswittrix" },
-            { name: "Services", path: "/techswittrix/services" },
-            { name: "Portfolio", path: "/techswittrix/portfolio" },
-            { name: "About", path: "/techswittrix/about" },
-            { name: "Contact", path: "/techswittrix/contact" },
-          ].map((link) => (
+          {linksToShow.map((link) => (
             <Link
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
               className={isActive(link.path) ? "active-link" : ""}
+              style={{
+                fontWeight: isActive(link.path) ? "bold" : "normal",
+                textDecoration: "none",
+                color: "#fff",
+                padding: "0 10px",
+              }}
             >
               {link.name}
             </Link>
