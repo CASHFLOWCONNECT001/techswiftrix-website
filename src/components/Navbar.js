@@ -9,19 +9,17 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
-  // Determine current section
+  // Determine which section we are in
   const isCyber = location.pathname.startsWith("/cyber");
   const isTech = location.pathname.startsWith("/techswittrix");
 
-  // Set header text dynamically
-  const headerText = isCyber ? "CYBER SERVICES" : isTech ? "TechSwittrix" : "";
+  // Header text dynamically
+  const headerText = isCyber ? "CYBER SERVICES" : isTech ? "TechSwiftTrix" : "";
 
-  // Back arrow only on Home pages
-  const showBackArrow =
-    (isTech && location.pathname === "/techswittrix") ||
-    (isCyber && location.pathname === "/cyber");
+  // Show back arrow only on home pages
+  const showBackArrow = location.pathname === "/techswittrix" || location.pathname === "/cyber";
 
-  // Links for TechSwittrix
+  // Links for TechSwiftTrix
   const techLinks = [
     { name: "Home", path: "/techswittrix" },
     { name: "Services", path: "/techswittrix/services" },
@@ -32,10 +30,10 @@ const Navbar = () => {
 
   // Links for Cyber
   const cyberLinks = [
-    { name: "Cyber Home", path: "/cyber" },
-    { name: "Cyber Services", path: "/cyber/services" },
-    { name: "Cyber About", path: "/cyber/about" },
-    { name: "Cyber FAQ", path: "/cyber/faq" },
+    { name: "Home", path: "/cyber" },
+    { name: "Services", path: "/cyber/services" },
+    { name: "About", path: "/cyber/about" },
+    { name: "FAQ", path: "/cyber/faq" },
   ];
 
   const linksToShow = isCyber ? cyberLinks : isTech ? techLinks : [];
@@ -58,9 +56,9 @@ const Navbar = () => {
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
-              size={18}
+              size={20}
               style={{ color: "#fff", cursor: "pointer" }}
-              onClick={() => navigate(-1)}
+              onClick={() => navigate("/")} // always go to Landing page
             />
           )}
 

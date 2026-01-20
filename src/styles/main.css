@@ -90,15 +90,23 @@ nav {
 /* ---------------- Mobile Navbar ---------------- */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* show hamburger */
+    display: flex; /* show hamburger */
+    align-items: center;
+    gap: 6px;
+  }
+
+  .hamburger::after {
+    content: 'Menu';
+    font-size: 1rem;
+    color: #fff;
   }
 
   .nav-links {
-    position: fixed;
-    top: 60px; /* below navbar */
+    position: absolute;
+    top: 50px; /* below navbar */
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 50px);
     background: #111;
     flex-direction: column;
     display: none; /* hidden by default */
@@ -113,10 +121,11 @@ nav {
 
   .nav-links a {
     display: block;
-    margin: 5px 0;
-    font-size: 1rem;
-    padding: 10px 15px;
+    margin: 4px 0;
+    padding: 10px 0; 
+    font-size: 0.95rem;
     text-align: center;
+    background: transparent; /* remove big blocks */
   }
 }
 
@@ -127,8 +136,9 @@ nav {
     padding: 8px 12px;
   }
 
-  h1 { font-size: 1.4rem; }
-  h2 { font-size: 1.15rem; }
+  h1 { font-size: clamp(1.2rem, 5vw, 1.4rem); }
+  h2 { font-size: clamp(1rem, 4vw, 1.2rem); }
+  h3 { font-size: clamp(0.95rem, 3.5vw, 1.1rem); }
 }
 
 /* ---------------- Footer ---------------- */
@@ -136,7 +146,7 @@ footer {
   background: #111;
   color: #fff;
   text-align: center;
-  padding: 25px 10px;
+  padding: 20px;
   font-size: 14px;
   margin-top: auto;
   width: 100%;
@@ -151,6 +161,7 @@ footer {
   cursor: pointer;
   color: #fff;
   transition: transform 0.25s;
+  min-height: 44px; /* ensure tap target */
 }
 
 .cta-button:hover {
@@ -231,43 +242,36 @@ input, textarea {
   font-size: 16px;
 }
 
-/* ---------------- Mobile Fixes ---------------- */
+/* ---------------- Mobile Fixes & Responsive Cards ---------------- */
 @media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;          /* 🔥 NOT fixed */
-    top: 60px;
-    left: 0;
-    width: 100%;
-    background: #111;
-    flex-direction: column;
-    padding: 8px 0;
-    display: none;
-    z-index: 3000;
-  }
-
-  nav.active .nav-links {
-    display: flex;
-  }
-
-  .nav-links a {
-    margin: 4px 0;
-    padding: 8px 0;             /* 🔽 smaller */
-    font-size: 0.9rem;          /* 🔽 smaller text */
-    background: transparent;    /* remove big blocks */
-  }
-
   .card,
   .service-card,
   .portfolio-card {
     width: 100%;
+    padding: 15px;
+  }
+
+  .service-card ul {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-left: 20px;
   }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 1.3rem; }
-  h2 { font-size: 1.1rem; }
+  .card,
+  .service-card,
+  .portfolio-card {
+    padding: 12px;
+  }
+
+  h1 { font-size: clamp(1.1rem, 6vw, 1.3rem); }
+  h2 { font-size: clamp(0.95rem, 5vw, 1.1rem); }
+  h3 { font-size: clamp(0.9rem, 4vw, 1rem); }
+
+  .cta-button {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
 }
