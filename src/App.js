@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Existing pages
+// Existing TechSwiftTrix pages
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -20,6 +20,9 @@ import HomeCyber from "./pages/homeCyber";
 import AboutCyber from "./pages/aboutCyber";
 import ServicesCyber from "./pages/servicesCyber";
 import FaqCyber from "./pages/faqCyber";
+
+// New MainAbout page
+import MainAbout from "./pages/MainAbout"; // <-- corrected casing
 
 // Layout wrapper for pages with Navbar/Footer
 const Layout = ({ children }) => (
@@ -37,7 +40,7 @@ function App() {
         {/* Landing page (no Navbar/Footer) */}
         <Route path="/" element={<LandingChoice />} />
 
-        {/* TechSwittrix pages */}
+        {/* TechSwiftTrix pages */}
         <Route
           path="/techswittrix"
           element={
@@ -75,6 +78,16 @@ function App() {
           element={
             <Layout>
               <Contact />
+            </Layout>
+          }
+        />
+
+        {/* TechSwiftTrix About Us (new page) */}
+        <Route
+          path="/mainabout"
+          element={
+            <Layout>
+              <MainAbout />
             </Layout>
           }
         />

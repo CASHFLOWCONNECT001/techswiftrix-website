@@ -12,20 +12,30 @@ const Navbar = () => {
   // Determine which section we are in
   const isCyber = location.pathname.startsWith("/cyber");
   const isTech = location.pathname.startsWith("/techswittrix");
+  const isMainAbout = location.pathname === "/mainabout";
 
   // Header text dynamically
-  const headerText = isCyber ? "CYBER SERVICES" : isTech ? "TechSwiftTrix" : "";
+  const headerText = isCyber
+    ? "CYBER SERVICES"
+    : isTech
+    ? "TechSwiftTrix"
+    : isMainAbout
+    ? "About TechSwiftTrix"
+    : "";
 
   // Show back arrow only on home pages
-  const showBackArrow = location.pathname === "/techswittrix" || location.pathname === "/cyber";
+  const showBackArrow =
+    location.pathname === "/techswittrix" ||
+    location.pathname === "/cyber" ||
+    location.pathname === "/mainabout";
 
   // Links for TechSwiftTrix
   const techLinks = [
     { name: "Home", path: "/techswittrix" },
     { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
-    { name: "About", path: "/techswittrix/about" },
     { name: "Contact", path: "/techswittrix/contact" },
+    { name: "About Us", path: "/mainabout" }, // new tab
   ];
 
   // Links for Cyber
@@ -58,7 +68,7 @@ const Navbar = () => {
             <FaArrowLeft
               size={20}
               style={{ color: "#fff", cursor: "pointer" }}
-              onClick={() => navigate("/")} // always go to Landing page
+              onClick={() => navigate("/")} // go to landing page
             />
           )}
 
