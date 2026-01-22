@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Landing Pages -->
+  <url>
+    <loc>https://techswifttrix.com/techswittrix</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/smartfix</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/cyber</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- About / Contact -->
+  <url>
+    <loc>https://techswifttrix.com/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/about-cyber</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/contact</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/faq-cyber</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Home / Portfolio / Services -->
+  <url>
+    <loc>https://techswifttrix.com/home</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/home-cyber</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/landing-choice</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/portfolio</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://techswifttrix.com/services-cyber</loc>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
