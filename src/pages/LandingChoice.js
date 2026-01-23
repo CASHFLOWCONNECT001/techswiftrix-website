@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaLaptopCode, FaTools, FaNetworkWired, FaInfoCircle } from "react-icons/fa";
+import {
+  FaLaptopCode,
+  FaTools,
+  FaNetworkWired,
+} from "react-icons/fa";
 
 const LandingChoice = () => {
   const navigate = useNavigate();
@@ -36,47 +40,67 @@ const LandingChoice = () => {
 
   return (
     <div>
-      {/* Top About Us tab */}
-      <div
+      {/* ================= HEADER ================= */}
+      <header
         style={{
+          width: "100%",
           backgroundColor: "#111",
-          color: "#fff",
-          textAlign: "center",
-          padding: "12px 0",
-          cursor: "pointer",
-          fontWeight: "bold",
+          padding: "16px 0",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-        onClick={() => navigate("/mainabout")}
       >
-        <FaInfoCircle style={{ marginRight: "8px" }} />
-        About TECHSWITTRIX
-      </div>
+        <span
+          onClick={() => navigate("/mainabout")}
+          style={{
+            color: "#2563eb",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "1.1rem", 
+            textDecoration: "underline",
+            transition: "opacity 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+        >
+          Click here to view About TechSwiftTrix
+        </span>
+      </header>
 
-      {/* Landing text */}
-      <div className="container" style={{ textAlign: "center", paddingTop: "80px" }}>
+      {/* ================= LANDING TEXT ================= */}
+      <div
+        className="container"
+        style={{ textAlign: "center", paddingTop: "80px" }}
+      >
         <h1 className="landing-title">
           Welcome to <strong>TECHSWITTRIX</strong>!
         </h1>
-        <p style={{ fontSize: "20px", margin: "20px 0 20px 0" }}>
-          Explore our <strong>Website Design</strong>, <strong>Mobile Apps</strong>,{" "}
-          <strong>Graphics</strong>, <strong>Cyber Services</strong>, and other professional{" "}
+
+        <p style={{ fontSize: "20px", margin: "20px 0" }}>
+          Explore our <strong>Website Design</strong>,{" "}
+          <strong>Mobile Apps</strong>, <strong>Graphics</strong>,{" "}
+          <strong>Cyber Services</strong>, and other professional{" "}
           <strong>Digital Services</strong>.
         </p>
-        <p
-          style={{
-            fontSize: "18px",
-            marginBottom: "40px",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "5px",
-          }}
-        >
-          Click the brand you want to be offered &rarr;
-        </p>
+
+      <p
+  style={{
+    fontSize: "18px",
+    marginBottom: "40px",
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "6px",
+    color: "#9333ea",          
+    fontWeight: "600",
+  }}
+>
+  Click the brand you want to be offered →
+</p>
+
       </div>
 
-      {/* Brand cards */}
+      {/* ================= BRAND CARDS ================= */}
       <div
         style={{
           display: "flex",
@@ -105,8 +129,7 @@ const LandingChoice = () => {
               alignItems: "center",
               boxShadow: brand.highlight
                 ? "0 8px 25px rgba(147, 51, 234, 0.6)"
-                : "0 5px 15px rgba(0,0,0,0.1)",
-              animationDelay: `${0.4 + index * 0.2}s`,
+                : "0 5px 15px rgba(0,0,0,0.15)",
             }}
             onClick={() => navigate(brand.route)}
             onMouseEnter={(e) => {
@@ -118,7 +141,9 @@ const LandingChoice = () => {
           >
             {brand.icon}
             <h2 style={{ marginBottom: "10px" }}>{brand.name}</h2>
-            <p style={{ fontSize: "0.95rem", lineHeight: "1.3" }}>{brand.description}</p>
+            <p style={{ fontSize: "0.95rem", lineHeight: "1.3" }}>
+              {brand.description}
+            </p>
           </div>
         ))}
       </div>

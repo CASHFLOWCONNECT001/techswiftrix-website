@@ -7,7 +7,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
 
   const whatsappNumber = "254116698540";
-  const emailAddress = "joshuamuuo234@gmail.com";
+  const emailAddress = "info@techswifttrix.com";
 
   const handleWhatsApp = () => {
     const text = `Hello Joshua, my name is ${name}. ${message}`;

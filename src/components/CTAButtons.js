@@ -2,7 +2,7 @@ import React from "react";
 
 const CTAButtons = ({ service }) => {
   const whatsappNumber = "254116698540";
-  const emailAddress = "joshuamuuo234@gmail.com";
+  const emailAddress = "info@techswifttrix.com";
 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hello Joshua, I am interested in your service: ${service}`

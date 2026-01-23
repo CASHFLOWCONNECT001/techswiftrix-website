@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 
 // Existing TechSwiftTrix pages
 import Home from "./pages/Home";
-import About from "./pages/About";
 import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
@@ -21,8 +20,8 @@ import AboutCyber from "./pages/aboutCyber";
 import ServicesCyber from "./pages/servicesCyber";
 import FaqCyber from "./pages/faqCyber";
 
-// New MainAbout page
-import MainAbout from "./pages/MainAbout"; // <-- corrected casing
+// New MainAbout page (KEEP THIS)
+import MainAbout from "./pages/MainAbout";
 
 // Layout wrapper for pages with Navbar/Footer
 const Layout = ({ children }) => (
@@ -49,14 +48,9 @@ function App() {
             </Layout>
           }
         />
-        <Route
-          path="/techswittrix/about"
-          element={
-            <Layout>
-              <About />
-            </Layout>
-          }
-        />
+
+        {/* ❌ Old About REMOVED */}
+
         <Route
           path="/techswittrix/services"
           element={
@@ -82,7 +76,7 @@ function App() {
           }
         />
 
-        {/* TechSwiftTrix About Us (new page) */}
+        {/* ✅ Main About page (KEPT) */}
         <Route
           path="/mainabout"
           element={

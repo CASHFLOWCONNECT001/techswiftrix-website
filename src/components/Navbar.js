@@ -7,14 +7,13 @@ const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const toggleMenu = () => setIsOpen(!isOpen);
+  const toggleMenu = () => setIsOpen(prev => !prev);
 
-  // Determine which section we are in
+  /* -------- Page detection -------- */
   const isCyber = location.pathname.startsWith("/cyber");
   const isTech = location.pathname.startsWith("/techswittrix");
   const isMainAbout = location.pathname === "/mainabout";
 
-  // Header text dynamically
   const headerText = isCyber
     ? "CYBER SERVICES"
     : isTech
@@ -23,22 +22,20 @@ const Navbar = () => {
     ? "About TechSwiftTrix"
     : "";
 
-  // Show back arrow only on home pages
   const showBackArrow =
     location.pathname === "/techswittrix" ||
     location.pathname === "/cyber" ||
     location.pathname === "/mainabout";
 
-  // Links for TechSwiftTrix
+  /* -------- Links -------- */
   const techLinks = [
     { name: "Home", path: "/techswittrix" },
     { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
     { name: "Contact", path: "/techswittrix/contact" },
-    { name: "About Us", path: "/mainabout" }, // new tab
+    // ❌ About Us REMOVED
   ];
 
-  // Links for Cyber
   const cyberLinks = [
     { name: "Home", path: "/cyber" },
     { name: "Services", path: "/cyber/services" },
@@ -47,7 +44,6 @@ const Navbar = () => {
   ];
 
   const linksToShow = isCyber ? cyberLinks : isTech ? techLinks : [];
-
   const isActive = (path) => location.pathname === path;
 
   return (
@@ -55,20 +51,19 @@ const Navbar = () => {
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
           alignItems: "center",
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "10px 20px",
+          width: "100%",
         }}
       >
-        {/* Left side */}
+        {/* LEFT SIDE */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
               size={20}
               style={{ color: "#fff", cursor: "pointer" }}
-              onClick={() => navigate("/")} // go to landing page
+              onClick={() => navigate("/")}
             />
           )}
 
@@ -77,19 +72,25 @@ const Navbar = () => {
               color: "#fff",
               fontWeight: "bold",
               fontSize: "1.2rem",
-              textDecoration: "none",
             }}
           >
             {headerText}
           </span>
         </div>
 
-        {/* Hamburger */}
-        <div className="hamburger" onClick={toggleMenu}>
+        {/* HAMBURGER */}
+        <div
+          className="hamburger"
+          onClick={toggleMenu}
+          style={{
+            marginLeft: "auto",
+            marginRight: "25%",
+          }}
+        >
           &#9776;
         </div>
 
-        {/* Links */}
+        {/* MENU LINKS */}
         <div className="nav-links">
           {linksToShow.map((link) => (
             <Link
@@ -100,8 +101,6 @@ const Navbar = () => {
               style={{
                 fontWeight: isActive(link.path) ? "bold" : "normal",
                 textDecoration: "none",
-                color: "#fff",
-                padding: "0 10px",
               }}
             >
               {link.name}

@@ -52,12 +52,16 @@ nav {
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
   transition: transform 0.3s ease;
   padding: 10px 20px;
+
+  display: flex;
+  align-items: center;
 }
 
 .nav-hidden {
   transform: translateY(-100%);
 }
 
+/* Desktop nav */
 .nav-links {
   display: flex;
   gap: 10px;
@@ -81,51 +85,67 @@ nav {
 
 /* Hamburger icon */
 .hamburger {
-  display: none; /* hidden on desktop */
+  display: none;
   font-size: 1.8rem;
   color: #fff;
   cursor: pointer;
+
+  margin-left: auto;
+  margin-right: 25%; /* NOT at edge */
 }
 
 /* ---------------- Mobile Navbar ---------------- */
 @media (max-width: 768px) {
+
   .hamburger {
-    display: flex; /* show hamburger */
+    display: flex;
     align-items: center;
     gap: 6px;
   }
 
   .hamburger::after {
-    content: 'Menu';
+    content: "Menu";
     font-size: 1rem;
     color: #fff;
   }
 
   .nav-links {
     position: absolute;
-    top: 50px; /* below navbar */
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 50px);
-    background: #111;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 90%;
+    max-width: 420px;
+
+    background: #fff;
+    color: #111;
+
     flex-direction: column;
-    display: none; /* hidden by default */
-    padding: 10px 0;
-    overflow-y: auto;
+    display: none;
+
+    padding: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     z-index: 3000;
   }
 
   nav.active .nav-links {
-    display: flex; /* show menu when active */
+    display: flex;
   }
 
   .nav-links a {
-    display: block;
+    color: #111;
+    background: transparent;
+    padding: 12px 0;
     margin: 4px 0;
-    padding: 10px 0; 
-    font-size: 0.95rem;
+    font-size: 1rem;
     text-align: center;
-    background: transparent; /* remove big blocks */
+    font-weight: bold;
+  }
+
+  .nav-links a:hover {
+    background: #f2f2f2;
   }
 }
 
@@ -133,7 +153,6 @@ nav {
 @media (max-width: 480px) {
   .nav-links a {
     font-size: 0.9rem;
-    padding: 8px 12px;
   }
 
   h1 { font-size: clamp(1.2rem, 5vw, 1.4rem); }
@@ -161,7 +180,7 @@ footer {
   cursor: pointer;
   color: #fff;
   transition: transform 0.25s;
-  min-height: 44px; /* ensure tap target */
+  min-height: 44px;
 }
 
 .cta-button:hover {
@@ -199,39 +218,6 @@ footer {
 .orange { background: #e67e22; }
 .cyan { background: #1abc9c; }
 
-/* ---------------- Landing Cards ---------------- */
-.landing-card {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s forwards;
-}
-
-.landing-card:nth-child(1){animation-delay:.2s}
-.landing-card:nth-child(2){animation-delay:.4s}
-.landing-card:nth-child(3){animation-delay:.6s}
-.landing-card:nth-child(4){animation-delay:.8s}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ---------------- Media ---------------- */
-.media-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.media-container img,
-.media-container video {
-  width: 100%;
-  max-width: 500px;
-  border-radius: 10px;
-}
-
 /* ---------------- Forms ---------------- */
 input, textarea {
   width: 100%;
@@ -240,38 +226,4 @@ input, textarea {
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 16px;
-}
-
-/* ---------------- Mobile Fixes & Responsive Cards ---------------- */
-@media (max-width: 768px) {
-  .card,
-  .service-card,
-  .portfolio-card {
-    width: 100%;
-    padding: 15px;
-  }
-
-  .service-card ul {
-    max-height: 200px;
-    overflow-y: auto;
-    padding-left: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  .card,
-  .service-card,
-  .portfolio-card {
-    padding: 12px;
-  }
-
-  h1 { font-size: clamp(1.1rem, 6vw, 1.3rem); }
-  h2 { font-size: clamp(0.95rem, 5vw, 1.1rem); }
-  h3 { font-size: clamp(0.9rem, 4vw, 1rem); }
-
-  .cta-button {
-    width: 90%;
-    font-size: 0.9rem;
-    padding: 10px;
-  }
 }

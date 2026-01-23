@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import CTAButtons from "../components/CTAButtons";
 import { FaArrowLeft } from "react-icons/fa";
+import SEO from "../components/SEO"; // ✅ ADD THIS
 import "../styles/main.css";
 
 const HomeCyber = () => {
@@ -16,58 +17,82 @@ const HomeCyber = () => {
   ];
 
   return (
-    <div className="AppContent" style={{ width: "100%", position: "relative", textAlign: "center" }}>
-      
-      {/* Back arrow below navbar */}
+    <>
+      {/* ✅ SEO FOR GOOGLE */}
+      <SEO path="/home-cyber" />
+
       <div
-        style={{
-          position: "absolute",
-          top: "80px", // below fixed navbar
-          left: "20px",
-          cursor: "pointer",
-          color: "#fff",
-        }}
-        onClick={() => navigate(-1)}
+        className="AppContent"
+        style={{ width: "100%", position: "relative", textAlign: "center" }}
       >
-        <FaArrowLeft size={24} />
-      </div>
-
-      {/* Main content wrapper */}
-      <div style={{ marginTop: "60px", width: "100%", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
-        <h1>Welcome to TechSwittrix Cyber Services</h1>
-
-        <p style={{ fontSize: "20px", margin: "20px 0 40px 0" }}>
-          We provide professional online cyber services including KRA, HELB, NTSA, document typing, CV formatting, and more.
-        </p>
-
-        <div className="cta-button-container" style={{ marginBottom: "50px" }}>
-          <CTAButtons service="Send Documents / Get Started" />
+        {/* Back arrow below navbar */}
+        <div
+          style={{
+            position: "absolute",
+            top: "80px",
+            left: "20px",
+            cursor: "pointer",
+            color: "#fff",
+          }}
+          onClick={() => navigate(-1)}
+        >
+          <FaArrowLeft size={24} />
         </div>
 
-        {/* Services category cards */}
-        <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap", paddingBottom: "40px" }}>
-          {servicesCategories.map((category) => (
-            <div
-              key={category.name}
-              className="card"
-              style={{
-                backgroundColor: category.color,
-                color: "#fff",
-                minWidth: "200px",
-                maxWidth: "250px",
-                padding: "20px",
-                borderRadius: "10px",
-                boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
-                cursor: "default", // not clickable
-              }}
-            >
-              <h3>{category.name}</h3>
-              <p>See details on Services page</p>
-            </div>
-          ))}
+        {/* Main content wrapper */}
+        <div
+          style={{
+            marginTop: "60px",
+            width: "100%",
+            maxWidth: "900px",
+            marginLeft: "auto",
+            marginRight: "auto",
+          }}
+        >
+          <h1>Welcome to TechSwittrix Cyber Services</h1>
+
+          <p style={{ fontSize: "20px", margin: "20px 0 40px 0" }}>
+            We provide professional online cyber services including KRA, HELB,
+            NTSA, document typing, CV formatting, and more.
+          </p>
+
+          <div className="cta-button-container" style={{ marginBottom: "50px" }}>
+            <CTAButtons service="Send Documents / Get Started" />
+          </div>
+
+          {/* Services category cards */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "20px",
+              flexWrap: "wrap",
+              paddingBottom: "40px",
+            }}
+          >
+            {servicesCategories.map((category) => (
+              <div
+                key={category.name}
+                className="card"
+                style={{
+                  backgroundColor: category.color,
+                  color: "#fff",
+                  minWidth: "200px",
+                  maxWidth: "250px",
+                  padding: "20px",
+                  borderRadius: "10px",
+                  boxShadow: "0 5px 15px rgba(0,0,0,0.1)",
+                  cursor: "default",
+                }}
+              >
+                <h3>{category.name}</h3>
+                <p>See details on Services page</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -69,7 +69,7 @@ const SmartFix = () => {
   ];
 
   const whatsappNumber = "254116698540"; // Cyber contact
-  const emailAddress = "joshuamuuo234@gmail.com";
+  const emailAddress = "info@techswifttrix.com";
 
   return (
     <div className="smartfix-page container">

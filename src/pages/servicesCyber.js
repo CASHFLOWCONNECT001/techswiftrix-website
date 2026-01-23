@@ -62,7 +62,7 @@ const ServicesCyber = () => {
   ];
 
   const whatsappNumber = "254116698540"; 
-  const emailAddress = "joshuamuuo234@gmail.com";
+  const emailAddress = "info@techswifttrix.com";
 
   return (
     <div className="AppContent container">
