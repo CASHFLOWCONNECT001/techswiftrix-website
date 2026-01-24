@@ -3,26 +3,16 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import logo from "../TechSwittrix.png";
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
-  const toggleMenu = () => setIsOpen(prev => !prev);
+  const toggleMenu = () => setIsOpen((prev) => !prev);
 
   /* -------- Page detection -------- */
   const isCyber = location.pathname.startsWith("/cyber");
   const isTech = location.pathname.startsWith("/techswittrix");
-  const isMainAbout = location.pathname === "/mainabout";
-
-  const headerText = isCyber
-    ? "CYBER SERVICES"
-    : isTech
-    ? "TechSwiftTrix"
-    : isMainAbout
-    ? "About TechSwiftTrix"
-    : "";
 
   const showBackArrow =
     location.pathname === "/techswittrix" ||
@@ -59,7 +49,7 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
       >
-        {/* LEFT SIDE: Logo + Title */}
+        {/* LEFT SIDE: Logo */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
