@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import logo from "../TechSwittrix.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const location = useLocation();
   const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
+
+  // Track screen resize
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   /* -------- Page detection -------- */
   const isCyber = location.pathname.startsWith("/cyber");
@@ -21,7 +29,7 @@ const Navbar = () => {
 
   /* -------- Links -------- */
   const techLinks = [
-    { name: "Dashboard", path: "/techswittrix" }, // changed from Home
+    { name: "Dashboard", path: "/techswittrix" },
     { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
     { name: "Contact", path: "/techswittrix/contact" },
@@ -38,7 +46,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav style={{ position: "relative" }}>
+    <nav style={{ background: "#111", padding: "0.5rem 0" }}>
       <div
         style={{
           display: "flex",
@@ -47,10 +55,9 @@ const Navbar = () => {
           margin: "0 auto",
           width: "100%",
           justifyContent: "space-between",
-          padding: "0.5rem 1rem",
         }}
       >
-        {/* LEFT SIDE: Logo */}
+        {/* LEFT: Logo + Back Arrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
@@ -60,7 +67,6 @@ const Navbar = () => {
             />
           )}
 
-          {/* Logo + Brand Name */}
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <img
               src={logo}
@@ -96,88 +102,55 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* HAMBURGER */}
-        <div
-          className="hamburger"
-          onClick={toggleMenu}
-          style={{
-            marginLeft: "auto",
-            cursor: "pointer",
-            fontSize: "1.5rem",
-            color: "#00ffff",
-          }}
-        >
-          &#9776;
-        </div>
+        {/* HAMBURGER: show only on mobile */}
+        {isMobile && (
+          <div
+            className="hamburger"
+            onClick={toggleMenu}
+            style={{ fontSize: "24px", cursor: "pointer" }}
+          >
+            &#9776;
+          </div>
+        )}
 
-        {/* HAMBURGER MENU LINKS */}
-        <div
-          className="nav-links"
-          style={{
-            display: isOpen ? "flex" : "none",
-            position: "absolute",
-            top: "100%",
-            right: 0,
-            flexDirection: "column",
-            backgroundColor: "#001f3f", // navy background
-            padding: "1rem",
-            borderRadius: "8px",
-            zIndex: 1000,
-            minWidth: "200px",
-          }}
-        >
-          {linksToShow.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsOpen(false)}
-              style={{
-                fontWeight: isActive(link.path) ? "bold" : "normal",
-                textDecoration: "none",
-                marginBottom: "10px",
-                padding: "0.25rem 0.5rem",
-                color: isActive(link.path) ? "#fffa00" : "#00ffff", // bright text
-                borderRadius: "4px",
-                transition: "all 0.3s ease",
-              }}
-              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")} // shiny hover pink
-              onMouseLeave={(e) =>
-                (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
-              }
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
-
-        {/* DESKTOP LINKS */}
-        <div
-          className="desktop-links"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "15px",
-          }}
-        >
-          {linksToShow.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              style={{
-                fontWeight: isActive(link.path) ? "bold" : "normal",
-                textDecoration: "none",
-                color: isActive(link.path) ? "#fffa00" : "#00ffff",
-                transition: "color 0.3s",
-              }}
-              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")}
-              onMouseLeave={(e) =>
-                (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
-              }
-            >
-              {link.name}
-            </Link>
-          ))}
-        </div>
+        {/* MENU LINKS */}
+        {(isMobile ? isOpen : true) && (
+          <div
+            className="nav-links"
+            style={{
+              display: "flex",
+              flexDirection: isMobile ? "column" : "row",
+              position: isMobile ? "absolute" : "static",
+              top: isMobile ? "60px" : "auto",
+              right: isMobile ? "10px" : "auto",
+              background: isMobile ? "#111" : "transparent",
+              padding: isMobile ? "10px" : "0",
+              borderRadius: isMobile ? "5px" : "0",
+              gap: "15px",
+              zIndex: 1000,
+            }}
+          >
+            {linksToShow.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                onClick={() => setIsOpen(false)}
+                style={{
+                  fontWeight: isActive(link.path) ? "bold" : "normal",
+                  textDecoration: "none",
+                  color: isActive(link.path) ? "#fffa00" : "#00ffff",
+                  transition: "color 0.3s",
+                }}
+                onMouseEnter={(e) => (e.target.style.color = "#ff69b4")}
+                onMouseLeave={(e) =>
+                  (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
+                }
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </nav>
   );
