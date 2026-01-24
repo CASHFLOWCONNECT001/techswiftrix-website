@@ -21,7 +21,7 @@ const Navbar = () => {
 
   /* -------- Links -------- */
   const techLinks = [
-    { name: "Home", path: "/techswittrix" },
+    { name: "Dashboard", path: "/techswittrix" }, // changed from Home
     { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
     { name: "Contact", path: "/techswittrix/contact" },
@@ -119,9 +119,14 @@ const Navbar = () => {
               style={{
                 fontWeight: isActive(link.path) ? "bold" : "normal",
                 textDecoration: "none",
-                color: "#fff",
                 marginLeft: "15px",
+                color: isActive(link.path) ? "#fffa00" : "#00ffff", // shiny colors: yellow active, cyan inactive
+                transition: "color 0.3s",
               }}
+              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")} // pink on hover
+              onMouseLeave={(e) =>
+                (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
+              }
             >
               {link.name}
             </Link>
