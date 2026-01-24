@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import "../styles/main.css";
+import logo from "../TechSwittrix.png"; // your TST logo in src/
 
 const SmartFix = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const SmartFix = () => {
         "SEO Optimization",
         "Social Media Branding",
       ],
-      },
+    },
     {
       title: "☁️ Cloud & Online Services",
       description: "Manage files, collaboration, and online systems remotely.",
@@ -47,7 +48,7 @@ const SmartFix = () => {
     {
       title: "📞 Remote Consultation",
       description: "Get guidance and solutions without leaving your home.",
-      colorClass: "#FF7F50", // orange
+      colorClass: "#FF7F50",
       items: [
         "Online Tutorials & Guidance",
         "Troubleshooting via Call or Video",
@@ -68,43 +69,83 @@ const SmartFix = () => {
     },
   ];
 
-  const whatsappNumber = "254116698540"; // Cyber contact
+  const whatsappNumber = "254116698540"; 
   const emailAddress = "info@techswifttrix.com";
 
   return (
     <div className="smartfix-page container">
-      {/* Header with Back Arrow */}
-      <header
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "10px",
-          justifyContent: "center",
-          padding: "12px 20px",
-          backgroundColor: "#000",
-          color: "#fff",
-          borderRadius: "6px",
-          marginBottom: "15px",
-        }}
-      >
-        <FaArrowLeft
-          size={20}
-          style={{ cursor: "pointer" }}
-          onClick={() => navigate("/")}
-        />
-        <h1 style={{ fontSize: "1.4rem", margin: 0, color: "#fff" }}>
+  {/* ================= BLACK RESPONSIVE HEADER ================= */}
+<header
+  style={{
+    width: "100%",
+    backgroundColor: "#000",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-start",
+    gap: "12px",
+    padding: "12px 20px",
+    flexWrap: "wrap",
+  }}
+>
+  {/* Back Arrow */}
+  <FaArrowLeft
+    size={24}
+    style={{ cursor: "pointer", color: "#00ffff" }}
+    onClick={() => navigate("/")}
+  />
+
+  {/* Logo */}
+  <img
+    src={logo}
+    alt="TechSwiftTrix Logo"
+    style={{
+      width: "45px",
+      height: "45px",
+      borderRadius: "50%",
+      boxShadow: "0 0 12px rgba(0,255,255,0.7)",
+    }}
+  />
+
+  {/* Brand name */}
+  <span
+    style={{
+      color: "#00ffff",
+      fontWeight: "bold",
+      fontSize: "1.1rem",
+      letterSpacing: "1px",
+    }}
+  >
+    TECHSWIFTTRIX AGENCY
+  </span>
+</header>
+
+
+      {/* ================= COLORFUL SMARTFIX TITLE ================= */}
+      <div style={{ textAlign: "center", marginBottom: "30px", paddingTop: "20px" }}>
+        <h1
+          style={{
+            fontSize: "2rem",
+            fontWeight: "bold",
+            background: "linear-gradient(90deg, #ff6ec4, #7873f5, #00f7ff, #f9ff00, #ff4c4c)",
+            backgroundSize: "400% 100%",
+            WebkitBackgroundClip: "text",
+            WebkitTextFillColor: "transparent",
+            animation: "shine 5s ease infinite",
+            display: "inline-block",
+          }}
+        >
           SmartFix Remote Software Services
         </h1>
-      </header>
+      </div>
 
-      {/* Sub-header / Description */}
+      {/* ================= SUB-HEADER DESCRIPTION ================= */}
       <div style={{ textAlign: "center", marginBottom: "30px" }}>
         <p style={{ fontSize: "1rem", maxWidth: "700px", margin: "0 auto" }}>
           We solve <strong>software issues</strong>, manage <strong>online forms</strong>, and boost your <strong>digital presence</strong>, <strong>quickly</strong>, <strong>securely</strong>, and <strong>remotely</strong> for <strong>individuals</strong> and <strong>businesses</strong> across <strong>Kenya</strong>.
         </p>
       </div>
 
-      {/* Service Category Cards */}
+      {/* ================= SERVICE CARDS ================= */}
       <div
         style={{
           display: "flex",
@@ -165,7 +206,7 @@ const SmartFix = () => {
         })}
       </div>
 
-      {/* Footer */}
+      {/* ================= FOOTER ================= */}
       <footer
         style={{
           backgroundColor: "#000",

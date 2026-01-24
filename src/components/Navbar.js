@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
+import logo from "../TechSwittrix.png";
+
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +35,6 @@ const Navbar = () => {
     { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
     { name: "Contact", path: "/techswittrix/contact" },
-    // ❌ About Us REMOVED
   ];
 
   const cyberLinks = [
@@ -55,9 +56,10 @@ const Navbar = () => {
           maxWidth: "1200px",
           margin: "0 auto",
           width: "100%",
+          justifyContent: "space-between",
         }}
       >
-        {/* LEFT SIDE */}
+        {/* LEFT SIDE: Logo + Title */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
@@ -67,15 +69,40 @@ const Navbar = () => {
             />
           )}
 
-          <span
-            style={{
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "1.2rem",
-            }}
-          >
-            {headerText}
-          </span>
+          {/* Logo + Brand Name */}
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <img
+              src={logo}
+              alt="TechSwiftTrix Logo"
+              style={{
+                width: "40px",
+                height: "40px",
+                borderRadius: "50%",
+                boxShadow: "0 0 12px rgba(0,255,255,0.7)",
+              }}
+            />
+            <div style={{ lineHeight: "1" }}>
+              <div
+                style={{
+                  color: "#00ffff",
+                  fontWeight: "bold",
+                  fontSize: "1.1rem",
+                  letterSpacing: "1px",
+                }}
+              >
+                TECHSWIFTTRIX
+              </div>
+              <div
+                style={{
+                  color: "#ffffff",
+                  fontSize: "0.75rem",
+                  opacity: 0.8,
+                }}
+              >
+                Agency
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* HAMBURGER */}
@@ -85,6 +112,7 @@ const Navbar = () => {
           style={{
             marginLeft: "auto",
             marginRight: "25%",
+            cursor: "pointer",
           }}
         >
           &#9776;
@@ -101,6 +129,8 @@ const Navbar = () => {
               style={{
                 fontWeight: isActive(link.path) ? "bold" : "normal",
                 textDecoration: "none",
+                color: "#fff",
+                marginLeft: "15px",
               }}
             >
               {link.name}

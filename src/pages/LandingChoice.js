@@ -1,10 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  FaLaptopCode,
-  FaTools,
-  FaNetworkWired,
-} from "react-icons/fa";
+import { FaLaptopCode, FaTools, FaNetworkWired } from "react-icons/fa";
+import logo from "../TechSwittrix.png"; // <-- your TST logo in src/
 
 const LandingChoice = () => {
   const navigate = useNavigate();
@@ -45,20 +42,56 @@ const LandingChoice = () => {
         style={{
           width: "100%",
           backgroundColor: "#111",
-          padding: "16px 0",
+          padding: "16px 20px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          gap: "12px",
+          flexWrap: "wrap",
         }}
       >
+        {/* Logo */}
+        <img
+          src={logo}
+          alt="TechSwiftTrix Logo"
+          style={{
+            width: "50px",
+            height: "50px",
+            borderRadius: "50%",
+            boxShadow: "0 0 12px rgba(0,255,255,0.7)",
+            cursor: "pointer",
+          }}
+          onClick={() => navigate("/mainabout")}
+        />
+
+        {/* Brand name */}
+        <span
+          onClick={() => navigate("/mainabout")}
+          style={{
+            color: "#00ffff",
+            cursor: "pointer",
+            fontWeight: "bold",
+            fontSize: "1.2rem",
+            letterSpacing: "1px",
+            textDecoration: "underline",
+            transition: "opacity 0.3s ease",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
+        >
+          TECHSWIFTTRIX AGENCY
+        </span>
+
+        {/* "About TechSwiftTrix" clickable */}
         <span
           onClick={() => navigate("/mainabout")}
           style={{
             color: "#2563eb",
             cursor: "pointer",
             fontWeight: "bold",
-            fontSize: "1.1rem", 
+            fontSize: "1.1rem",
             textDecoration: "underline",
+            marginLeft: "10px",
             transition: "opacity 0.3s ease",
           }}
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.8")}
@@ -69,35 +102,30 @@ const LandingChoice = () => {
       </header>
 
       {/* ================= LANDING TEXT ================= */}
-      <div
-        className="container"
-        style={{ textAlign: "center", paddingTop: "80px" }}
-      >
+      <div className="container" style={{ textAlign: "center", paddingTop: "80px" }}>
         <h1 className="landing-title">
           Welcome to <strong>TECHSWITTRIX</strong>!
         </h1>
 
         <p style={{ fontSize: "20px", margin: "20px 0" }}>
-          Explore our <strong>Website Design</strong>,{" "}
-          <strong>Mobile Apps</strong>, <strong>Graphics</strong>,{" "}
-          <strong>Cyber Services</strong>, and other professional{" "}
+          Explore our <strong>Website Design</strong>, <strong>Mobile Apps</strong>,{" "}
+          <strong>Graphics</strong>, <strong>Cyber Services</strong>, and other professional{" "}
           <strong>Digital Services</strong>.
         </p>
 
-      <p
-  style={{
-    fontSize: "18px",
-    marginBottom: "40px",
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "6px",
-    color: "#9333ea",          
-    fontWeight: "600",
-  }}
->
-  Click the brand you want to be offered →
-</p>
-
+        <p
+          style={{
+            fontSize: "18px",
+            marginBottom: "40px",
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "6px",
+            color: "#9333ea",
+            fontWeight: "600",
+          }}
+        >
+          Click the brand you want to be offered →
+        </p>
       </div>
 
       {/* ================= BRAND CARDS ================= */}
@@ -110,7 +138,7 @@ const LandingChoice = () => {
           paddingBottom: "60px",
         }}
       >
-        {brands.map((brand, index) => (
+        {brands.map((brand) => (
           <div
             key={brand.name}
             className="card landing-card"
@@ -141,9 +169,7 @@ const LandingChoice = () => {
           >
             {brand.icon}
             <h2 style={{ marginBottom: "10px" }}>{brand.name}</h2>
-            <p style={{ fontSize: "0.95rem", lineHeight: "1.3" }}>
-              {brand.description}
-            </p>
+            <p style={{ fontSize: "0.95rem", lineHeight: "1.3" }}>{brand.description}</p>
           </div>
         ))}
       </div>
