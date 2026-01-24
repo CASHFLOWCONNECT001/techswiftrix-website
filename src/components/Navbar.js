@@ -38,7 +38,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className={isOpen ? "active" : ""}>
+    <nav style={{ position: "relative" }}>
       <div
         style={{
           display: "flex",
@@ -47,6 +47,7 @@ const Navbar = () => {
           margin: "0 auto",
           width: "100%",
           justifyContent: "space-between",
+          padding: "0.5rem 1rem",
         }}
       >
         {/* LEFT SIDE: Logo */}
@@ -101,29 +102,74 @@ const Navbar = () => {
           onClick={toggleMenu}
           style={{
             marginLeft: "auto",
-            marginRight: "25%",
             cursor: "pointer",
+            fontSize: "1.5rem",
+            color: "#00ffff",
           }}
         >
           &#9776;
         </div>
 
-        {/* MENU LINKS */}
-        <div className="nav-links">
+        {/* HAMBURGER MENU LINKS */}
+        <div
+          className="nav-links"
+          style={{
+            display: isOpen ? "flex" : "none",
+            position: "absolute",
+            top: "100%",
+            right: 0,
+            flexDirection: "column",
+            backgroundColor: "#001f3f", // navy background
+            padding: "1rem",
+            borderRadius: "8px",
+            zIndex: 1000,
+            minWidth: "200px",
+          }}
+        >
           {linksToShow.map((link) => (
             <Link
               key={link.name}
               to={link.path}
               onClick={() => setIsOpen(false)}
-              className={isActive(link.path) ? "active-link" : ""}
               style={{
                 fontWeight: isActive(link.path) ? "bold" : "normal",
                 textDecoration: "none",
-                marginLeft: "15px",
-                color: isActive(link.path) ? "#fffa00" : "#00ffff", // shiny colors: yellow active, cyan inactive
+                marginBottom: "10px",
+                padding: "0.25rem 0.5rem",
+                color: isActive(link.path) ? "#fffa00" : "#00ffff", // bright text
+                borderRadius: "4px",
+                transition: "all 0.3s ease",
+              }}
+              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")} // shiny hover pink
+              onMouseLeave={(e) =>
+                (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
+              }
+            >
+              {link.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* DESKTOP LINKS */}
+        <div
+          className="desktop-links"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "15px",
+          }}
+        >
+          {linksToShow.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              style={{
+                fontWeight: isActive(link.path) ? "bold" : "normal",
+                textDecoration: "none",
+                color: isActive(link.path) ? "#fffa00" : "#00ffff",
                 transition: "color 0.3s",
               }}
-              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")} // pink on hover
+              onMouseEnter={(e) => (e.target.style.color = "#ff69b4")}
               onMouseLeave={(e) =>
                 (e.target.style.color = isActive(link.path) ? "#fffa00" : "#00ffff")
               }
