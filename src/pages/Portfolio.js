@@ -1,12 +1,12 @@
 import React from "react";
 import CTAButtons from "../components/CTAButtons";
 import "../styles/main.css";
-import logo from "../TechSwittrix.png"; // <-- your full TST logo in src/
+import logo from "../TechSwittrix.png"; 
 
 const Portfolio = () => {
   const projectsByField = {
     "Graphic Design": [
-      { title: "TechSwiftTrix Logo", img: logo }, // Show full logo
+      { title: "TechSwiftTrix Logo", img: logo }, 
       { title: "Social Media Banner - TrendyShop", img: "https://via.placeholder.com/250x150" }
     ],
     "Website Testing": [
@@ -50,13 +50,13 @@ const Portfolio = () => {
           <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
             {projectsByField[field].map(project => {
               const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-                `Hello Joshua, I am interested in your project: ${project.title}`
+                `Hello TechSwiftTrix Team, I am interested in your project: ${project.title}`
               )}`;
 
               const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
                 `Project Inquiry: ${project.title}`
               )}&body=${encodeURIComponent(
-                `Hello Joshua,\n\nI am interested in your project: ${project.title}.\n\nPlease contact me.\n\nThank you.`
+                `Hello TechSwiftTrix Team,\n\nI am interested in your project: ${project.title}.\n\nPlease contact me.\n\nThank you.`
               )}`;
 
               return (

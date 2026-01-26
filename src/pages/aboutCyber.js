@@ -13,7 +13,7 @@ const AboutCyber = () => {
 {/* Who We Are */}
 <h2>Who We Are</h2>
 <p style={{ fontSize: "16px", marginBottom: "30px" }}>
-  This <strong>Cyber service</strong> is under <strong>TechSwittrix</strong>, simplifying <strong>online forms</strong>, <strong>official documents</strong>, and <strong>digital services</strong> so <strong>businesses</strong> and <strong>individuals</strong> in Kenya can get things done faster and smarter.
+  This <strong>Cyber service</strong> is under <strong>TechSwiftTrix</strong>, simplifying <strong>online forms</strong>, <strong>official documents</strong>, and <strong>digital services</strong> so <strong>businesses</strong> and <strong>individuals</strong> in Kenya can get things done faster and smarter.
 </p>
 
       <p style={{ fontSize: "16px", marginBottom: "30px" }}>

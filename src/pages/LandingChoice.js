@@ -1,7 +1,9 @@
+// pages/LandingChoice.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLaptopCode, FaTools, FaNetworkWired } from "react-icons/fa";
-import logo from "../TechSwittrix.png"; // <-- your TST logo in src/
+import logo from "../TechSwittrix.png";
+import BusinessNeedsSection from "../components/BusinessNeed"; // ✅ Import the business needs section
 
 const LandingChoice = () => {
   const navigate = useNavigate();
@@ -12,7 +14,7 @@ const LandingChoice = () => {
       color: "#2563eb",
       description:
         "Website Design, Mobile Apps, Graphics, Writing, and other professional Digital Services.",
-      route: "/techswittrix",
+      route: "/techswittrix", // ✅ points to Home.js route
       icon: <FaLaptopCode size={36} style={{ marginBottom: "8px" }} />,
       highlight: false,
     },
@@ -29,7 +31,7 @@ const LandingChoice = () => {
       color: "#9333ea",
       description:
         "Online Cyber Services including KRA, HELB, NTSA, Document Typing, and more.",
-      route: "/cyber",
+      route: "/cyber", // ✅ points to HomeCyber page
       icon: <FaNetworkWired size={44} style={{ marginBottom: "8px" }} />,
       highlight: true,
     },
@@ -53,7 +55,7 @@ const LandingChoice = () => {
         {/* Logo */}
         <img
           src={logo}
-          alt="TechSwiftTrix Logo"
+          alt="TechSwittrix Logo"
           style={{
             width: "50px",
             height: "50px",
@@ -82,7 +84,7 @@ const LandingChoice = () => {
           TECHSWIFTTRIX AGENCY
         </span>
 
-        {/* "About TechSwiftTrix" clickable */}
+        {/* About clickable */}
         <span
           onClick={() => navigate("/mainabout")}
           style={{
@@ -104,7 +106,7 @@ const LandingChoice = () => {
       {/* ================= LANDING TEXT ================= */}
       <div className="container" style={{ textAlign: "center", paddingTop: "80px" }}>
         <h1 className="landing-title">
-          Welcome to <strong>TECHSWITTRIX</strong>!
+          Welcome to <strong>TECHSWIFTTRIX</strong>!
         </h1>
 
         <p style={{ fontSize: "20px", margin: "20px 0" }}>
@@ -173,6 +175,9 @@ const LandingChoice = () => {
           </div>
         ))}
       </div>
+
+      {/* ================= BUSINESS NEEDS SECTION ================= */}
+      <BusinessNeedsSection />
     </div>
   );
 };

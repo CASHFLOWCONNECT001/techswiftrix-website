@@ -1,0 +1,10 @@
+<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cloud Shape -->
+  <path d="M48 32c4 0 8 3 8 8s-4 8-8 8H16c-4 0-8-3-8-8s4-8 8-8c0-4 4-8 8-8s8 4 8 8h8c0-4 4-8 8-8z" fill="#1abc9c" stroke="#0f766e" stroke-width="2"/>
+  
+  <!-- Folder inside cloud -->
+  <rect x="22" y="30" width="20" height="14" rx="2" fill="#fff" stroke="#0f766e" stroke-width="1.5"/>
+  
+  <!-- Upload arrow -->
+  <path d="M32 28v8M28 32l4-4 4 4" stroke="#0f766e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

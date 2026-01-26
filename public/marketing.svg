@@ -1,0 +1,9 @@
+<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Megaphone body -->
+  <path d="M10 40 L40 24 L40 40 L10 40 Z" fill="#F59E0B" stroke="#D97706" stroke-width="2"/>
+  <!-- Megaphone handle -->
+  <rect x="8" y="40" width="6" height="12" fill="#D97706"/>
+  <!-- Sound waves -->
+  <path d="M44 24 C50 20, 58 20, 58 24" stroke="#F59E0B" stroke-width="2" fill="none"/>
+  <path d="M44 30 C52 26, 60 26, 60 30" stroke="#FBBF24" stroke-width="2" fill="none"/>
+</svg>

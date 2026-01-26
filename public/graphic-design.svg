@@ -1,0 +1,18 @@
+<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Palette -->
+  <ellipse cx="32" cy="32" rx="28" ry="20" fill="#FBBF24" stroke="#D97706" stroke-width="2"/>
+  
+  <!-- Color dots -->
+  <circle cx="24" cy="28" r="3" fill="#EF4444"/>
+  <circle cx="32" cy="24" r="3" fill="#10B981"/>
+  <circle cx="40" cy="28" r="3" fill="#3B82F6"/>
+  <circle cx="28" cy="36" r="3" fill="#8B5CF6"/>
+  
+  <!-- Pencil -->
+  <rect x="12" y="42" width="2" height="16" fill="#6B7280" transform="rotate(-30 12 42)"/>
+  <polygon points="12,42 14,40 16,42 14,44" fill="#EF4444" transform="rotate(-30 12 42)"/>
+  
+  <!-- Brush -->
+  <rect x="20" y="10" width="3" height="20" fill="#6B7280" transform="rotate(45 20 10)"/>
+  <ellipse cx="23" cy="8" rx="3" ry="5" fill="#3B82F6" transform="rotate(45 23 8)"/>
+</svg>

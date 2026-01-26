@@ -19,7 +19,7 @@ const MainAbout = () => {
         {/* Header / Hero Section */}
         <div style={{ textAlign: "center", marginBottom: "50px" }}>
           <h1 style={{ fontSize: "2.5rem", marginBottom: "20px" }}>
-            Welcome to <strong>TECHSWITTRIX</strong>
+            Welcome to <strong>TECHSWIFTTRIX</strong>
           </h1>
           <p style={{ fontSize: "1.2rem", lineHeight: "1.6" }}>
             We provide <strong>professional digital services</strong> and{" "}

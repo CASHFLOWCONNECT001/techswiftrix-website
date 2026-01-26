@@ -10,7 +10,7 @@ const Contact = () => {
   const emailAddress = "info@techswifttrix.com";
 
   const handleWhatsApp = () => {
-    const text = `Hello Joshua, my name is ${name}. ${message}`;
+    const text = `Hello TechSwiftTrix Team, my name is ${name}. ${message}`;
     const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
     window.open(whatsappLink, "_blank");
   };

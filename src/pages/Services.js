@@ -72,13 +72,13 @@ const Services = () => {
       >
         {services.map((service, index) => {
           const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-            `Hello Joshua, I would like to request: ${service.title}`
+            `Hello TechSwiftTrix Team, I would like to request: ${service.title}`
           )}`;
 
           const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
             `Service Request: ${service.title}`
           )}&body=${encodeURIComponent(
-            `Hello Joshua,\n\nI would like to request your service: ${service.title}.\n\nPlease contact me.\n\nThank you.`
+            `Hello TechSwiftTrix Team,\n\nI would like to request your service: ${service.title}.\n\nPlease contact me.\n\nThank you.`
           )}`;
 
           return (

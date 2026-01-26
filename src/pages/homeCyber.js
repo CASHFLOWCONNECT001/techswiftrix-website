@@ -49,7 +49,7 @@ const HomeCyber = () => {
             marginRight: "auto",
           }}
         >
-          <h1>Welcome to TechSwittrix Cyber Services</h1>
+          <h1>Welcome to TechSwiftTrix Cyber Services</h1>
 
           <p style={{ fontSize: "20px", margin: "20px 0 40px 0" }}>
             We provide professional online cyber services including KRA, HELB,
