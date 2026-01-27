@@ -1,0 +1,17 @@
+﻿<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#f0f4f8" stroke="#1e40af" stroke-width="2"/>
+
+  <!-- Document -->
+  <rect x="20" y="16" width="24" height="32" rx="2" fill="#3b82f6"/>
+
+  <!-- Checkboxes -->
+  <rect x="24" y="22" width="4" height="4" fill="#1e40af"/>
+  <rect x="24" y="30" width="4" height="4" fill="#1e40af"/>
+  <rect x="24" y="38" width="4" height="4" fill="#1e40af"/>
+
+  <!-- Lines for text -->
+  <line x1="30" y1="24" x2="40" y2="24" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+  <line x1="30" y1="32" x2="40" y2="32" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+  <line x1="30" y1="40" x2="40" y2="40" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+</svg>

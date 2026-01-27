@@ -9,10 +9,10 @@ const Home = () => {
   const navigate = useNavigate();
 
   const services = [
-    { name: "Graphic Design", color: "#FF6F61" },
-    { name: "Website Testing", color: "#3498DB" },
-    { name: "Writing & Editing", color: "#F1C40F" },
-    { name: "Mobile App Development", color: "#2ECC71" },
+    { name: "Creative Design Services", color: "#FF6F61" },
+    { name: "Website Solutions", color: "#3498DB" },
+    { name: "Content Services", color: "#F1C40F" },
+    { name: "Mobile App Solutions", color: "#2ECC71" },
   ];
 
   return (

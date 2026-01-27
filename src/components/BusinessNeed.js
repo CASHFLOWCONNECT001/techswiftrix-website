@@ -81,61 +81,61 @@ const BusinessNeedsSection = () => {
       title: "Your Business Needs a Website",
       imageSrc: "/website.svg",
       content:
-        "A professional website builds trust, showcases your products/services, and helps you reach more customers online.",
+        "A website is your digital headquarters. It builds credibility, works for you 24/7, showcases your services clearly, and converts visitors into paying customers. Without a website, your business loses trust and visibility in today’s digital-first world.",
     },
     {
       title: "Your Business Needs a Mobile App",
       imageSrc: "/mobile-app.svg",
       content:
-        "Mobile apps improve customer engagement, make services easily accessible, and increase brand loyalty.",
+        "Mobile apps place your business directly in your customers’ hands. They increase engagement, speed up service delivery, enable notifications, and strengthen customer loyalty—giving you a competitive edge in a mobile-driven market.",
     },
     {
       title: "Digital Marketing is Essential",
       imageSrc: "/marketing.svg",
       content:
-        "Social media, SEO, and email marketing help you reach your target audience and grow your business faster.",
+        "Great products mean nothing if no one sees them. Digital marketing uses SEO, social media, and targeted campaigns to attract the right audience, generate leads, and consistently grow your brand and revenue online.",
     },
     {
       title: "Graphic Design Matters",
       imageSrc: "/graphic-design.svg",
       content:
-        "Strong visuals communicate your brand message, increase recognition, and create a professional look.",
+        "Visuals shape first impressions. Professional graphic design strengthens brand identity, improves recognition, and communicates trust instantly—making your business look established, credible, and memorable.",
     },
     {
       title: "Cybersecurity Protection",
       imageSrc: "/cybersecurity.svg",
       content:
-        "Protect your business data and your customers from cyber attacks with proper cybersecurity measures.",
+        "Cyber threats can destroy trust overnight. Strong cybersecurity protects sensitive business and customer data, prevents system breaches, and ensures compliance—keeping your operations safe and your reputation intact.",
     },
     {
       title: "E-commerce Solutions",
       imageSrc: "/ecommerce.svg",
       content:
-        "Sell products online securely with an e-commerce website or app tailored to your business needs.",
+        "E-commerce allows your business to sell anytime, anywhere. With secure payment systems and optimized user experience, you can expand your market reach, automate sales, and increase revenue without physical limitations.",
     },
     {
       title: "Customer Relationship Management",
       imageSrc: "/crm.svg",
       content:
-        "Manage clients, track interactions, and improve satisfaction with a CRM system designed for your business.",
+        "A CRM system helps you understand your customers better. It centralizes client data, tracks interactions, improves follow-ups, and boosts customer satisfaction—turning one-time buyers into loyal clients.",
     },
     {
       title: "Cloud Storage & Collaboration",
       imageSrc: "/cloud.svg",
       content:
-        "Store, access, and share your business files securely from anywhere using cloud services.",
+        "Cloud solutions enable secure data storage, remote access, and seamless collaboration. Your team can work efficiently from anywhere while keeping files protected, organized, and always available.",
     },
     {
       title: "Data Analytics & Insights",
       imageSrc: "/data-analytics.svg",
       content:
-        "Understand your customers, track performance, and make informed decisions with analytics tools.",
+        "Data-driven decisions win. Analytics tools help you understand customer behavior, measure performance, identify opportunities, and optimize strategies—so your business grows based on facts, not guesswork.",
     },
     {
       title: "24/7 IT Support",
       imageSrc: "/it-support.svg",
       content:
-        "Ensure your business runs smoothly with ongoing technical support and fast problem resolution.",
+        "Technology issues shouldn’t stop your business. Reliable IT support ensures fast problem resolution, system stability, and continuous operations—so you stay focused on growth, not technical setbacks.",
     },
   ];
 

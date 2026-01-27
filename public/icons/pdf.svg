@@ -1,0 +1,17 @@
+﻿<svg width="100" height="100" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#f0f4f8" stroke="#1e40af" stroke-width="2"/>
+
+  <!-- Document with folded corner -->
+  <path d="M20 16H44V48H20V16Z" fill="#3b82f6"/>
+  <polygon points="44,16 44,24 36,16" fill="#2563eb"/>
+
+  <!-- PDF label rectangle -->
+  <rect x="28" y="36" width="8" height="8" rx="1" fill="#f97316"/>
+  <text x="32" y="42" text-anchor="middle" font-size="5" font-family="Arial, sans-serif" fill="white" font-weight="bold">PDF</text>
+
+  <!-- Lines representing content -->
+  <line x1="24" y1="24" x2="40" y2="24" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="30" x2="40" y2="30" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+  <line x1="24" y1="34" x2="40" y2="34" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+</svg>

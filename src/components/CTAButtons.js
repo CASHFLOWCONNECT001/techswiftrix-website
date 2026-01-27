@@ -5,13 +5,13 @@ const CTAButtons = ({ service }) => {
   const emailAddress = "info@techswifttrix.com";
 
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-    `Hello Joshua, I am interested in your service: ${service}`
+    `Hello TechSwiftTrix, I am interested in your service: ${service}`
   )}`;
 
   const emailLink = `mailto:${emailAddress}?subject=${encodeURIComponent(
     `Service Request: ${service}`
   )}&body=${encodeURIComponent(
-    `Hello Joshua,\n\nI would like to request your service: ${service}.\n\nPlease contact me.\n\nThank you.`
+    `Hello TechSwiftTrix,\n\nI would like to request your service: ${service}.\n\nPlease contact me.\n\nThank you.`
   )}`;
 
   return (
