@@ -7,8 +7,6 @@ import BusinessNeedsSection from "../components/BusinessNeed";
 
 const LandingChoice = () => {
   const navigate = useNavigate();
-
-  // ✅ FIX: Hook must be inside component
   const [aiOpen, setAiOpen] = useState(false);
 
   const brands = [
@@ -169,61 +167,69 @@ const LandingChoice = () => {
       {/* ================= BUSINESS NEEDS SECTION ================= */}
       <BusinessNeedsSection />
 
-      {/* ================= TECHSWIFTTRIX AI CHAT ================= */}
+      {/* ================= TST-AI CHAT ================= */}
       <div
         style={{
           position: "fixed",
           bottom: "20px",
-          right: "20px",
           zIndex: 9999,
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center", // center for small screens
+          width: "100%",
+          pointerEvents: "none",
         }}
       >
-        {/* Floating Button */}
         {!aiOpen && (
           <button
             onClick={() => setAiOpen(true)}
             style={{
-              width: "60px",
-              height: "60px",
+              width: "70px",
+              height: "70px",
               borderRadius: "50%",
               backgroundColor: "#2563eb",
               color: "#fff",
               border: "none",
-              fontSize: "22px",
+              fontSize: "28px",
               cursor: "pointer",
               boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
+              pointerEvents: "auto",
             }}
           >
             🤖
           </button>
         )}
 
-        {/* AI Chat Window */}
         {aiOpen && (
           <div
             style={{
-              width: "360px",
-              height: "540px",
+              width: "90vw",
+              maxWidth: "380px",
+              height: "70vh",
               backgroundColor: "#0f172a",
               borderRadius: "16px",
               boxShadow: "0 12px 30px rgba(0,0,0,0.35)",
               overflow: "hidden",
+              pointerEvents: "auto",
+              display: "flex",
+              flexDirection: "column",
             }}
           >
+            {/* Header */}
             <div
               style={{
-                height: "45px",
+                height: "50px",
                 backgroundColor: "#111827",
                 color: "#00ffff",
                 display: "flex",
                 justifyContent: "space-between",
                 alignItems: "center",
                 padding: "0 12px",
-                fontSize: "14px",
+                fontSize: "16px",
                 fontWeight: "bold",
               }}
             >
-              <span>TechSwiftTrix AI</span>
+              <span>TST-AI</span>
               <button
                 onClick={() => setAiOpen(false)}
                 style={{
@@ -231,19 +237,20 @@ const LandingChoice = () => {
                   border: "none",
                   color: "#fff",
                   cursor: "pointer",
-                  fontSize: "18px",
+                  fontSize: "20px",
                 }}
               >
                 ✕
               </button>
             </div>
 
+            {/* Iframe */}
             <iframe
               src="https://tst-ai-next.vercel.app/chat"
               width="100%"
-              height="495"
-              style={{ border: "none" }}
-              title="TechSwiftTrix AI Assistant"
+              height="100%"
+              style={{ border: "none", flex: 1 }}
+              title="TST-AI Assistant"
             />
           </div>
         )}
