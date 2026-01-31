@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+// Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Existing TechSwiftTrix pages
+// TechSwiftTrix pages
 import Home from "./pages/Home";
-import Services from "./pages/Services";
 import Portfolio from "./pages/Portfolio";
 import Contact from "./pages/Contact";
 
@@ -14,13 +14,12 @@ import Contact from "./pages/Contact";
 import LandingChoice from "./pages/LandingChoice";
 import SmartFix from "./pages/SmartFix";
 
-// Cyber pages
+// Cyber pages (match exact filenames)
 import HomeCyber from "./pages/homeCyber";
 import AboutCyber from "./pages/aboutCyber";
-import ServicesCyber from "./pages/servicesCyber";
 import FaqCyber from "./pages/faqCyber";
 
-// New MainAbout page (KEEP THIS)
+// Main About page
 import MainAbout from "./pages/MainAbout";
 
 // Layout wrapper for pages with Navbar/Footer
@@ -36,26 +35,15 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Landing page (no Navbar/Footer) */}
+        {/* Landing */}
         <Route path="/" element={<LandingChoice />} />
 
-        {/* TechSwiftTrix pages */}
+        {/* TechSwiftTrix */}
         <Route
           path="/techswittrix"
           element={
             <Layout>
               <Home />
-            </Layout>
-          }
-        />
-
-        {/* ❌ Old About REMOVED */}
-
-        <Route
-          path="/techswittrix/services"
-          element={
-            <Layout>
-              <Services />
             </Layout>
           }
         />
@@ -76,7 +64,7 @@ function App() {
           }
         />
 
-        {/* ✅ Main About page (KEPT) */}
+        {/* Main About */}
         <Route
           path="/mainabout"
           element={
@@ -86,10 +74,10 @@ function App() {
           }
         />
 
-        {/* SmartFix page */}
+        {/* SmartFix */}
         <Route path="/smartfix" element={<SmartFix />} />
 
-        {/* Cyber pages */}
+        {/* Cyber */}
         <Route
           path="/cyber"
           element={
@@ -103,14 +91,6 @@ function App() {
           element={
             <Layout>
               <AboutCyber />
-            </Layout>
-          }
-        />
-        <Route
-          path="/cyber/services"
-          element={
-            <Layout>
-              <ServicesCyber />
             </Layout>
           }
         />

@@ -1,12 +1,12 @@
 import React from "react";
 import CTAButtons from "../components/CTAButtons";
 import "../styles/main.css";
-import logo from "../TechSwittrix.png"; 
+import logo from "../TechSwittrix.png";
 
 const Portfolio = () => {
   const projectsByField = {
     "Graphic Design": [
-      { title: "TechSwiftTrix Logo", img: logo }, 
+      { title: "TechSwiftTrix Logo", img: logo },
       { title: "Social Media Banner - TrendyShop", img: "https://via.placeholder.com/250x150" }
     ],
     "Website Testing": [
@@ -23,30 +23,37 @@ const Portfolio = () => {
     ]
   };
 
-  const fieldColors = {
-    "Graphic Design": "#FF6F61",
-    "Website Testing": "#3498DB",
-    "Writing & Editing": "#F1C40F",
-    "Mobile App Development": "#2ECC71"
-  };
-
   const whatsappNumber = "254116698540";
   const emailAddress = "info@techswifttrix.com";
 
+  // Unique gradient for each card (brand palette)
+  const cardGradients = [
+    "linear-gradient(135deg, #06b6d4, #a855f7)",      // Electric Blue → Violet
+    "linear-gradient(135deg, #06b6d4, #ec4899)",      // Electric Blue → Magenta
+    "linear-gradient(135deg, #a855f7, #ec4899)",      // Violet → Magenta
+    "linear-gradient(135deg, #06b6d4, #a855f7, #ec4899)" // Blue → Violet → Magenta
+  ];
+
+  let gradientIndex = 0; // for cycling gradients
+
   return (
     <div className="container" style={{ textAlign: "center", paddingBottom: "50px" }}>
-      <h1>Portfolio</h1>
-      <p>Check out our professional work in each field.</p>
+      <h1 style={{ color: "black" }}>Portfolio</h1>
+      <p style={{ color: "black" }}>Check out our professional work in each field.</p>
 
       {Object.keys(projectsByField).map(field => (
         <div key={field} style={{ marginTop: "50px" }}>
-          <h2 style={{ color: fieldColors[field], marginBottom: "20px" }}>{field}</h2>
+          {/* Field Title */}
+          <h2 style={{ color: "black", fontWeight: "700", fontSize: "2rem", marginBottom: "20px" }}>
+            {field}
+          </h2>
 
           {/* Section CTA Button */}
           <div className="cta-button-container" style={{ marginBottom: "20px" }}>
             <CTAButtons service={field} />
           </div>
 
+          {/* Projects Cards */}
           <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
             {projectsByField[field].map(project => {
               const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
@@ -59,20 +66,24 @@ const Portfolio = () => {
                 `Hello TechSwiftTrix Team,\n\nI am interested in your project: ${project.title}.\n\nPlease contact me.\n\nThank you.`
               )}`;
 
+              // pick gradient for this card
+              const cardGradient = cardGradients[gradientIndex % cardGradients.length];
+              gradientIndex++;
+
               return (
                 <div
                   key={project.title}
                   className="portfolio-card"
                   style={{
-                    backgroundColor: fieldColors[field],
-                    color: "#fff",
+                    background: cardGradient,
+                    borderRadius: "10px",
+                    boxShadow: "0 6px 20px rgba(0,0,0,0.25), 0 0 20px rgba(6,182,212,0.3)",
                     width: "250px",
                     padding: "15px",
-                    borderRadius: "10px",
-                    boxShadow: "0 6px 18px rgba(0,0,0,0.2)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
+                    transition: "transform 0.3s",
                   }}
                 >
                   <img
@@ -80,17 +91,28 @@ const Portfolio = () => {
                     alt={project.title}
                     style={{
                       width: "100%",
-                      height: field === "Graphic Design" ? "auto" : "150px",
+                      height: "150px",
                       objectFit: "contain",
                       borderRadius: "5px",
-                      boxShadow: field === "Graphic Design" ? "0 0 15px rgba(0,255,255,0.6)" : "none",
-                      padding: field === "Graphic Design" ? "10px" : "0",
+                      boxShadow: "0 0 15px rgba(6,182,212,0.5)",
+                      padding: "5px",
+                      transition: "box-shadow 0.3s",
                     }}
                   />
-                  <h3 style={{ marginTop: "10px" }}>{project.title}</h3>
+                  <h3
+                    style={{
+                      marginTop: "10px",
+                      color: "black",
+                      fontWeight: "600",
+                      fontSize: "1.1rem",
+                      textAlign: "center"
+                    }}
+                  >
+                    {project.title}
+                  </h3>
 
                   {/* Single CTA buttons per project */}
-                  <div className="cta-button-container" style={{ marginTop: "10px" }}>
+                  <div className="cta-button-container" style={{ marginTop: "10px", display: "flex", gap: "10px" }}>
                     <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
                       <button className="cta-button whatsapp">WhatsApp</button>
                     </a>

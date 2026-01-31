@@ -11,14 +11,12 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsOpen((prev) => !prev);
 
-  // Track screen resize
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  /* -------- Page detection -------- */
   const isCyber = location.pathname.startsWith("/cyber");
   const isTech = location.pathname.startsWith("/techswittrix");
 
@@ -27,17 +25,14 @@ const Navbar = () => {
     location.pathname === "/cyber" ||
     location.pathname === "/mainabout";
 
-  /* -------- Links -------- */
   const techLinks = [
     { name: "Dashboard", path: "/techswittrix" },
-    { name: "Services", path: "/techswittrix/services" },
     { name: "Portfolio", path: "/techswittrix/portfolio" },
     { name: "Contact", path: "/techswittrix/contact" },
   ];
 
   const cyberLinks = [
     { name: "Home", path: "/cyber" },
-    { name: "Services", path: "/cyber/services" },
     { name: "About", path: "/cyber/about" },
     { name: "FAQ", path: "/cyber/faq" },
   ];
@@ -57,7 +52,6 @@ const Navbar = () => {
           justifyContent: "space-between",
         }}
       >
-        {/* LEFT: Logo + Back Arrow */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           {showBackArrow && (
             <FaArrowLeft
@@ -102,7 +96,6 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* HAMBURGER: show only on mobile */}
         {isMobile && (
           <div
             className="hamburger"
@@ -113,7 +106,6 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* MENU LINKS */}
         {(isMobile ? isOpen : true) && (
           <div
             className="nav-links"
