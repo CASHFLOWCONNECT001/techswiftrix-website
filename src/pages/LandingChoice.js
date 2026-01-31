@@ -170,121 +170,129 @@ const LandingChoice = () => {
       </div>
 
       {/* ================= BRAND CARDS ================= */}
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    gap: "30px",
+    flexWrap: "wrap",
+    paddingBottom: "60px",
+  }}
+>
+  {brands.map((brand, idx) => {
+    const isFlipped = flippedCard === idx;
+
+    return (
       <div
+        key={brand.name}
+        className={`flip-card ${isFlipped ? "flipped" : ""}`}
+        onClick={() => setFlippedCard(isFlipped ? null : idx)}
         style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "30px",
-          flexWrap: "wrap",
-          paddingBottom: "60px",
+          cursor: "pointer",
+          perspective: "1000px",
+          position: "relative",
+          flex: "1 1 250px",
+          minWidth: brand.highlight ? "280px" : "250px",
+          maxWidth: brand.highlight ? "300px" : "280px",
+          transition: "all 0.5s ease",
         }}
       >
-        {brands.map((brand, idx) => {
-          const isFlipped = flippedCard === idx;
-
-          return (
-            <div
-              key={brand.name}
-              className={`flip-card ${isFlipped ? "flipped" : ""}`}
-              onClick={() => setFlippedCard(isFlipped ? null : idx)}
-              style={{ cursor: "pointer", perspective: "1000px", position: "relative" }}
+        <div
+          className="flip-card-inner"
+          style={{
+            borderRadius: "12px",
+            transition: "transform 0.6s",
+            transformStyle: "preserve-3d",
+            transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+          }}
+        >
+          {/* FRONT */}
+          <div
+            className="flip-card-front"
+            style={{
+              backfaceVisibility: "hidden",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              background: brand.color,
+              boxShadow: brand.glow,
+              color: "#fff",
+              padding: "30px 20px",
+              borderRadius: "12px",
+            }}
+          >
+            {brand.icon}
+            <h2 style={{ margin: "8px 0" }}>{brand.name}</h2>
+            <span
+              style={{
+                color: "#000",
+                fontWeight: "bold",
+                fontSize: "1rem",
+                cursor: "pointer",
+                marginTop: "10px",
+              }}
             >
+              ✔ Click to View More
+            </span>
+          </div>
+
+          {/* BACK */}
+          <div
+            className="flip-card-back"
+            style={{
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              padding: "30px 20px",
+              borderRadius: "12px",
+              backgroundColor: "#fff",
+              color: "#020617",
+              boxShadow: "0 0 10px rgba(0,0,0,0.15)",
+            }}
+          >
+            <h3 style={{ marginBottom: "12px" }}>{brand.name} Services</h3>
+            {brand.description.map((item, i) => (
               <div
-                className="flip-card-inner"
+                key={i}
                 style={{
-                  minWidth: brand.highlight ? "280px" : "250px",
-                  maxWidth: brand.highlight ? "300px" : "280px",
-                  padding: "30px 20px",
-                  borderRadius: "12px",
-                  transformStyle: "preserve-3d",
-                  transition: "transform 0.6s",
-                  transform: isFlipped ? "rotateY(180deg)" : "rotateY(0deg)",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "0.9rem",
+                  marginBottom: "6px",
                 }}
               >
-                {/* FRONT */}
-                <div
-                  className="flip-card-front"
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    backfaceVisibility: "hidden",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    background: brand.color,
-                    boxShadow: brand.glow,
-                    color: "#fff",
-                  }}
-                >
-                  {brand.icon}
-                  <h2 style={{ margin: "8px 0" }}>{brand.name}</h2>
-                  <span
-                    style={{
-                      color: "#000",
-                      fontWeight: "bold",
-                      fontSize: "1rem",
-                      cursor: "pointer",
-                      marginTop: "10px",
-                    }}
-                  >
-                    ✔ Click to View More
-                  </span>
-                </div>
-
-                {/* BACK */}
-                <div
-                  className="flip-card-back"
-                  style={{
-                    position: "absolute",
-                    width: "100%",
-                    backfaceVisibility: "hidden",
-                    transform: "rotateY(180deg)",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    paddingTop: "10px",
-                    backgroundColor: "#fff",
-                    color: "#020617",
-                    boxShadow: "0 0 10px rgba(0,0,0,0.15)",
-                  }}
-                >
-                  <h3 style={{ marginBottom: "12px" }}>{brand.name} Services</h3>
-                  {brand.description.map((item, i) => (
-                    <div
-                      key={i}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "8px",
-                        fontSize: "0.9rem",
-                        marginBottom: "6px",
-                      }}
-                    >
-                      <span style={{ color: "#ff4ecd", fontWeight: "bold" }}>✔</span>
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                  <button
-                    onClick={() => navigate(brand.route)}
-                    style={{
-                      marginTop: "10px",
-                      padding: "8px 16px",
-                      borderRadius: "8px",
-                      backgroundColor: "#00eaff",
-                      border: "none",
-                      cursor: "pointer",
-                      fontWeight: "bold",
-                      color: "#020617",
-                    }}
-                  >
-                    Go to {brand.name}
-                  </button>
-                </div>
+                <span style={{ color: "#ff4ecd", fontWeight: "bold" }}>✔</span>
+                <span>{item}</span>
               </div>
-            </div>
-          );
-        })}
+            ))}
+            <button
+              onClick={(e) => {
+                e.stopPropagation(); // prevent card flip when clicking button
+                navigate(brand.route);
+              }}
+              style={{
+                marginTop: "10px",
+                padding: "8px 16px",
+                borderRadius: "8px",
+                backgroundColor: "#00eaff",
+                border: "none",
+                cursor: "pointer",
+                fontWeight: "bold",
+                color: "#020617",
+              }}
+            >
+              Go to {brand.name}
+            </button>
+          </div>
+        </div>
       </div>
+    );
+  })}
+</div>
+
 
       {/* ================= BUSINESS NEEDS ================= */}
       <BusinessNeedsSection />
